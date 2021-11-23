@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option go_package = "disysminiproject3/service";
+
+package service;
+
+service auction {
+    rpc MakeBid(Bid) returns (Result) {};
+    rpc GetResult(google.protobuf.Empty) returns (Result) {};
+}
+
+message Bid {
+    string uuid = 1;
+    int32 amount = 2;
+}
+
+message Result {
+    string madeBy = 1;
+    int32 amount = 2;
+    Status status = 3;
+}
+
+enum Status {
+    OK = 0;
+    FAIL = 1;
+    EXCEPTION = 2;
+}
