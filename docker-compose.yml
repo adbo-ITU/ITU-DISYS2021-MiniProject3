@@ -27,9 +27,10 @@ services:
   better1:
     image: itudisysmp3client
     environment:
-    - BETTER_NAME=Bob
+    - BIDDER_NAME=Bob
     - SERVERS=3
   better2:
     image: itudisysmp3client
     environment:
-    - BETTER_NAME=Alice
+    - BIDDER_NAME=Alice
+    - SERVERS=3

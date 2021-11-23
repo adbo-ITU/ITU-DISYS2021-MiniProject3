@@ -1,0 +1,16 @@
+FROM golang:1.17.3-alpine3.14
+
+WORKDIR /src
+
+COPY service service
+COPY server server
+COPY go.mod .
+COPY Makefile .
+
+RUN go mod tidy
+
+WORKDIR /src/server
+
+# For production type settings we should build the binary and run that instead.
+
+ENTRYPOINT [ "go", "run", "main.go"]

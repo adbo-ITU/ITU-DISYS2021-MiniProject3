@@ -1,0 +1,14 @@
+FROM golang:1.17.3-alpine3.14
+
+WORKDIR /src
+
+COPY service service
+COPY frontend frontend
+COPY go.mod .
+COPY Makefile .
+
+RUN go mod tidy
+
+WORKDIR /src/frontend
+
+ENTRYPOINT [ "go", "run", "main.go", "utils.go"]

@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/andreas/Google Drev/Personligt/ITU/3. Semester/Distributed Systems/Mini Projects/Project 3/ITU-DISYS2021-MiniProject3'
+protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative ./service/service.proto
+make: Leaving directory `/Users/andreas/Google Drev/Personligt/ITU/3. Semester/Distributed Systems/Mini Projects/Project 3/ITU-DISYS2021-MiniProject3'
+ 

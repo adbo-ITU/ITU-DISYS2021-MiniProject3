@@ -14,6 +14,10 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
+const (
+	auctionTime = 60 * time.Second
+)
+
 var (
 	highestBid = service.Result{
 		MadeBy: "server, lol make a bid man",
@@ -25,7 +29,7 @@ var (
 
 func main() {
 	go func() {
-		time.Sleep(60 * time.Second)
+		time.Sleep(auctionTime)
 		endAuction()
 	}()
 
