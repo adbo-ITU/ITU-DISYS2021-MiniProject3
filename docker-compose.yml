@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  # Auction RMs
+  auctionserver1:
+    image: "itudisysmp3server"
+    environment:
+    - PORT=5000
+    expose:
+    - 5000
+
+  auctionserver2:
+    image: "itudisysmp3server"
+    environment:
+    - PORT=5000
+    expose:
+    - 5000
+
+  auctionserver3:
+    image: "itudisysmp3server"
+    environment:
+    - PORT=5000
+    expose:
+    - 5000
+
+  # Betters
+  better1:
+    image: itudisysmp3client
+    environment:
+    - BETTER_NAME=Bob
+    - SERVERS=3
+  better2:
+    image: itudisysmp3client
+    environment:
+    - BETTER_NAME=Alice

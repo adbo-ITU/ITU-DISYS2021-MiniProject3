@@ -1,11 +1,11 @@
 syntax = "proto3";
 
 import "google/protobuf/empty.proto";
-option go_package = "disysminiproject3/service";
+option go_package = "github.com/avborup/ITU-DISYS2021-MiniProject3/service";
 
 package service;
 
-service auction {
+service service {
     rpc MakeBid(Bid) returns (Result) {};
     rpc GetResult(google.protobuf.Empty) returns (Result) {};
 }
@@ -23,6 +23,6 @@ message Result {
 
 enum Status {
     OK = 0;
-    FAIL = 1;
-    EXCEPTION = 2;
+    TOO_LOW = 1;
+    AUCTION_OVER = 2;
 }

@@ -15,122 +15,122 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// AuctionClient is the client API for Auction service.
+// ServiceClient is the client API for Service service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AuctionClient interface {
+type ServiceClient interface {
 	MakeBid(ctx context.Context, in *Bid, opts ...grpc.CallOption) (*Result, error)
 	GetResult(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Result, error)
 }
 
-type auctionClient struct {
+type serviceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAuctionClient(cc grpc.ClientConnInterface) AuctionClient {
-	return &auctionClient{cc}
+func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
+	return &serviceClient{cc}
 }
 
-func (c *auctionClient) MakeBid(ctx context.Context, in *Bid, opts ...grpc.CallOption) (*Result, error) {
+func (c *serviceClient) MakeBid(ctx context.Context, in *Bid, opts ...grpc.CallOption) (*Result, error) {
 	out := new(Result)
-	err := c.cc.Invoke(ctx, "/service.auction/MakeBid", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.service/MakeBid", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *auctionClient) GetResult(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Result, error) {
+func (c *serviceClient) GetResult(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Result, error) {
 	out := new(Result)
-	err := c.cc.Invoke(ctx, "/service.auction/GetResult", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/service.service/GetResult", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AuctionServer is the server API for Auction service.
-// All implementations must embed UnimplementedAuctionServer
+// ServiceServer is the server API for Service service.
+// All implementations must embed UnimplementedServiceServer
 // for forward compatibility
-type AuctionServer interface {
+type ServiceServer interface {
 	MakeBid(context.Context, *Bid) (*Result, error)
 	GetResult(context.Context, *empty.Empty) (*Result, error)
-	mustEmbedUnimplementedAuctionServer()
+	mustEmbedUnimplementedServiceServer()
 }
 
-// UnimplementedAuctionServer must be embedded to have forward compatible implementations.
-type UnimplementedAuctionServer struct {
+// UnimplementedServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedServiceServer struct {
 }
 
-func (UnimplementedAuctionServer) MakeBid(context.Context, *Bid) (*Result, error) {
+func (UnimplementedServiceServer) MakeBid(context.Context, *Bid) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method MakeBid not implemented")
 }
-func (UnimplementedAuctionServer) GetResult(context.Context, *empty.Empty) (*Result, error) {
+func (UnimplementedServiceServer) GetResult(context.Context, *empty.Empty) (*Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetResult not implemented")
 }
-func (UnimplementedAuctionServer) mustEmbedUnimplementedAuctionServer() {}
+func (UnimplementedServiceServer) mustEmbedUnimplementedServiceServer() {}
 
-// UnsafeAuctionServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AuctionServer will
+// UnsafeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServer will
 // result in compilation errors.
-type UnsafeAuctionServer interface {
-	mustEmbedUnimplementedAuctionServer()
+type UnsafeServiceServer interface {
+	mustEmbedUnimplementedServiceServer()
 }
 
-func RegisterAuctionServer(s grpc.ServiceRegistrar, srv AuctionServer) {
-	s.RegisterService(&Auction_ServiceDesc, srv)
+func RegisterServiceServer(s grpc.ServiceRegistrar, srv ServiceServer) {
+	s.RegisterService(&Service_ServiceDesc, srv)
 }
 
-func _Auction_MakeBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_MakeBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Bid)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuctionServer).MakeBid(ctx, in)
+		return srv.(ServiceServer).MakeBid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.auction/MakeBid",
+		FullMethod: "/service.service/MakeBid",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuctionServer).MakeBid(ctx, req.(*Bid))
+		return srv.(ServiceServer).MakeBid(ctx, req.(*Bid))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auction_GetResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GetResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(empty.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuctionServer).GetResult(ctx, in)
+		return srv.(ServiceServer).GetResult(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/service.auction/GetResult",
+		FullMethod: "/service.service/GetResult",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuctionServer).GetResult(ctx, req.(*empty.Empty))
+		return srv.(ServiceServer).GetResult(ctx, req.(*empty.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Auction_ServiceDesc is the grpc.ServiceDesc for Auction service.
+// Service_ServiceDesc is the grpc.ServiceDesc for Service service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Auction_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "service.auction",
-	HandlerType: (*AuctionServer)(nil),
+var Service_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "service.service",
+	HandlerType: (*ServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "MakeBid",
-			Handler:    _Auction_MakeBid_Handler,
+			Handler:    _Service_MakeBid_Handler,
 		},
 		{
 			MethodName: "GetResult",
-			Handler:    _Auction_GetResult_Handler,
+			Handler:    _Service_GetResult_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
