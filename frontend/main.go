@@ -19,130 +19,174 @@ var (
 	bidderName string
 
 	serverNodes []string
-	bidChannels = make([]chan int32, 0)
 
-	currentBidMutex sync.Mutex
-	currentBid      int32 = 0
+	timeoutDuration = 2 * time.Second
 
-	timeoutDuration = 5 * time.Second
+	rmDirectory = make(map[string]ReplicaManager)
 )
+
+type ReplicaManager struct {
+	serviceClient service.ServiceClient
+	address       string
+}
 
 func main() {
 	log.Println("Starting to set up bidder")
 	setupBidder()
 	log.Println("Starting to dial all nodes")
 	dialAllNodes()
+	log.Println("Starting the bidding machine")
+	bidMachine()
 
 	stop := make(chan bool)
 	<-stop
 }
 
-func makeBid(client service.ServiceClient, bid int32) error {
+func getReplicaManagers() []ReplicaManager {
+
+	replicaManagers := make([]ReplicaManager, 0)
+	for _, nodeAddr := range serverNodes {
+		if client, ok := rmDirectory[nodeAddr]; ok {
+			replicaManagers = append(replicaManagers, client)
+		} else {
+			// the connection is lost, reconnect
+			log.Printf("Trying to reconnect to node %s\n", nodeAddr)
+			connection, err := getConnection(nodeAddr)
+
+			if err == nil {
+				client := service.NewServiceClient(connection)
+				replicaManager := ReplicaManager{serviceClient: client, address: nodeAddr}
+				replicaManagers = append(replicaManagers, replicaManager)
+				rmDirectory[nodeAddr] = replicaManager
+
+			} else {
+				log.Printf("After attempted reconnection to %s, it failed again.\n", nodeAddr)
+			}
+		}
+	}
+
+	return replicaManagers
+}
+
+func makeBid(replicaManager ReplicaManager, bid int32) error {
 	context, cancel := context.WithTimeout(context.Background(), timeoutDuration)
 	defer cancel()
 
-	reply, err := client.MakeBid(context, &service.Bid{
+	_, err := replicaManager.serviceClient.MakeBid(context, &service.Bid{
 		Amount: bid,
 		Uuid:   bidderName,
 	})
 
 	if err != nil {
-		// Ther server disconnected
+		// The server disconnected: attempt to reconnect
 		log.Printf("Could not make bid: %s\n", err)
+		// remove map from the replica manager directory
+		removeReplicaManager(replicaManager.address)
 		return err
-	}
-
-	if reply.Status == service.Status_OK {
-		updateBid(reply.Amount)
 	}
 
 	return nil
 }
 
-func removeServerNode(index int) {
-	newServerNodes := make([]string, 0)
-	for i, addr := range serverNodes {
-		if i != index {
-			newServerNodes = append(newServerNodes, addr)
-		}
-	}
-	serverNodes = newServerNodes
-}
-
-func dialNode(addr string, channelIndex int) {
-
-	client := service.NewServiceClient(getConnection(addr))
-
-	result, err := getResult(client)
-	if err != nil {
-		log.Println("Client could not get initial result from server")
-		return
-	}
-	updateBid(result.GetAmount())
-
+func bidMachine() {
 	for {
-		// Recipe for success:
-		// 1. Get the current bid
-		// 2. If the bid is higher than the current bid, update the current bid
-		// 2b. Make a new bid that is higher than the updated bid
-		// 2c. Send the new bid to the server
-		// 3. If the bid is lower than the current bid, something went wrong and then just bid again
-		// 4. If the bid is made by me, then I won't bid again
+		replicaManagers := getReplicaManagers()
 
-		// Check to see if there is a bid message in the channel and then make the bid
+		result := getCurrentHighestBid(&replicaManagers)
 
-		log.Println("Going to check the bid channel for messages")
-		select {
-		case bid := <-bidChannels[channelIndex]:
-			log.Printf("There were a bid in the channel. The bid is %d, the current bid is %d\n", bid, currentBid)
-			err := makeBid(client, bid+1)
-
-			if err != nil {
-				removeServerNode(channelIndex)
-				break
-			}
-
-		default:
-			log.Println("There were no bids to make")
-		}
-
-		// Get the latest auction result
-		result, err = getResult(client)
-
-		if err != nil {
-			removeServerNode(channelIndex)
-			break
-		}
-
-		log.Printf("Got the latest result. Bid: %d, made by: %s", result.Amount, result.MadeBy)
-
-		if result.Status == service.Status_AUCTION_OVER {
-			log.Printf("The auction is over. The winner was %s\n", result.GetMadeBy())
+		if result.GetStatus() == service.Status_AUCTION_OVER {
+			log.Printf("The auction is over. The winner was %s. The winning bid was: %d\n", result.GetMadeBy(), result.GetAmount())
 			return
 		}
 
-		if result.GetMadeBy() == bidderName {
-			log.Println("I was the highest bidder, so I won't bid again for now")
-		} else {
-			log.Printf("I'm going to bid!!!!. The current bid is %d, the latest result is %d\n", result.Amount, currentBid)
-			updateBid(result.GetAmount())
-
-			currentBidMutex.Lock()
-			bidChannels[channelIndex] <- currentBid
-			currentBidMutex.Unlock()
+		if result.GetMadeBy() != bidderName {
+			newBid := result.GetAmount() + 1
+			log.Printf("Client is going to make a new highest bid of %d\n", newBid)
+			makeBidsOnAllReplicas(&replicaManagers, newBid)
 		}
-	}
-
-	if len(serverNodes) == 0 {
-		log.Fatalln("All servers are gone!")
 	}
 }
 
-func dialAllNodes() {
-	// Recipe for success
-	// Read how many servers there are
-	// use the prefix and then numbering to connect to all of the servers
+func makeBidsOnAllReplicas(replicaManagers *[]ReplicaManager, bid int32) {
 
+	wg := sync.WaitGroup{}
+	for _, replicaManager := range *replicaManagers {
+
+		wg.Add(1)
+		go func(rm ReplicaManager) {
+
+			makeBid(rm, bid)
+			wg.Done()
+
+		}(replicaManager)
+	}
+	wg.Wait()
+}
+
+func getCurrentHighestBid(replicaManagers *[]ReplicaManager) service.Result {
+
+	var resultBuffer []service.Result
+	resultLock := sync.Mutex{}
+	wg := sync.WaitGroup{}
+
+	for _, replicaManager := range *replicaManagers {
+
+		// async boooi
+		wg.Add(1)
+		go func(rm ReplicaManager) {
+			result, err := getResult(rm)
+
+			if err != nil {
+				wg.Done()
+				return
+			}
+
+			resultLock.Lock()
+			resultBuffer = append(resultBuffer, service.Result{MadeBy: result.GetMadeBy(),
+				Amount: result.GetAmount(),
+				Status: result.GetStatus()})
+			resultLock.Unlock()
+
+			wg.Done()
+		}(replicaManager)
+	}
+
+	wg.Wait()
+
+	bestResult := deepCopyResult(&resultBuffer[0])
+	// find the highest result, such that we avoid propagating discrepancies
+	for i, result := range resultBuffer {
+		if i != 0 {
+			if result.Amount > bestResult.Amount {
+				bestResult = deepCopyResult(&result)
+			}
+		}
+	}
+
+	// returning a deep copy of an already deep copied result is to comply with the go formatter
+	return deepCopyResult(&bestResult)
+}
+
+func deepCopyResult(result *service.Result) service.Result {
+	return service.Result{MadeBy: result.GetMadeBy(),
+		Amount: result.GetAmount(),
+		Status: result.GetStatus(),
+	}
+}
+
+func dialNode(addr string) (service.ServiceClient, error) {
+
+	connection, err := getConnection(addr)
+	if err != nil {
+		// uh oh
+		return nil, err
+	}
+
+	client := service.NewServiceClient(connection)
+	return client, nil
+}
+
+func dialAllNodes() {
 	servers := os.Getenv("SERVERS")
 	n, err := strconv.Atoi(servers)
 	if err != nil {
@@ -159,42 +203,51 @@ func dialAllNodes() {
 		serverNodes = append(serverNodes, addr)
 	}
 
-	for i, addr := range serverNodes {
-		// Create the bid channel for the coming goroutine
-		bidChannels = append(bidChannels, make(chan int32, 10))
+	rmLock := sync.Mutex{}
+	wg := sync.WaitGroup{}
 
-		go dialNode(addr, i)
+	for _, addr := range serverNodes {
+		wg.Add(1)
+		go func(address string) {
+			serviceClient, _ := dialNode(address)
+
+			rmLock.Lock()
+			rmDirectory[address] = ReplicaManager{serviceClient: serviceClient, address: address}
+			rmLock.Unlock()
+			wg.Done()
+		}(addr)
 	}
+
+	wg.Wait()
 }
 
-func updateBid(bid int32) {
-	currentBidMutex.Lock()
-	defer currentBidMutex.Unlock()
-
-	if bid > currentBid {
-		currentBid = bid
-	}
-}
-
-func getResult(client service.ServiceClient) (*service.Result, error) {
+func getResult(replicaManager ReplicaManager) (*service.Result, error) {
 	context, cancel := context.WithTimeout(context.Background(), timeoutDuration)
 	defer cancel()
 
-	result, err := client.GetResult(context, &emptypb.Empty{})
+	result, err := replicaManager.serviceClient.GetResult(context, &emptypb.Empty{})
 	if err != nil {
-
-		// The server has crashed, so we should just kill the connection to the server
+		// the connection got lost - lets remove the client for now
 		log.Printf("Could not get result: %s\n", err)
+		removeReplicaManager(replicaManager.address)
 	}
 
 	return result, err
 }
 
-func getConnection(addr string) *grpc.ClientConn {
+func removeReplicaManager(addr string) {
+	delete(rmDirectory, addr)
+}
 
-	conn, err := grpc.Dial(addr, grpc.WithInsecure(), grpc.WithBlock())
+func getConnection(addr string) (*grpc.ClientConn, error) {
+
+	timeoutContext, cancelFunction := context.WithTimeout(context.Background(), timeoutDuration)
+	defer cancelFunction()
+
+	conn, err := grpc.DialContext(timeoutContext, addr, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
-		log.Fatalf("Could not connect to server %s", err)
+		return nil, fmt.Errorf("could not connect to server %s", err)
 	}
-	return conn
+
+	return conn, nil
 }

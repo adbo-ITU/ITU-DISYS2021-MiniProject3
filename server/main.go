@@ -31,6 +31,9 @@ func main() {
 	go func() {
 		time.Sleep(auctionTime)
 		endAuction()
+
+		time.Sleep(2 * time.Second)
+		log.Printf("The highets bidder for this replica manager was %d by %s\n", highestBid.Amount, highestBid.MadeBy)
 	}()
 
 	StartServer()
