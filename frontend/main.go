@@ -72,10 +72,14 @@ func makeBid(replicaManager ReplicaManager, bid int32) error {
 	context, cancel := context.WithTimeout(context.Background(), timeoutDuration)
 	defer cancel()
 
-	_, err := replicaManager.serviceClient.MakeBid(context, &service.Bid{
+	reply, err := replicaManager.serviceClient.MakeBid(context, &service.Bid{
 		Amount: bid,
 		Uuid:   bidderName,
 	})
+
+	if reply.GetStatus() == service.Status_AUCTION_OVER {
+		return fmt.Errorf("the auction is over")
+	}
 
 	if err != nil {
 		// The server disconnected: attempt to reconnect
@@ -88,11 +92,21 @@ func makeBid(replicaManager ReplicaManager, bid int32) error {
 	return nil
 }
 
+func buzz() {
+	time.Sleep(3 * time.Second)
+}
+
 func bidMachine() {
 	for {
 		replicaManagers := getReplicaManagers()
 
-		result := getCurrentHighestBid(&replicaManagers)
+		result, err := getCurrentHighestBid(&replicaManagers)
+
+		if err != nil {
+			log.Printf("Could not get any result from replica managers: %s\n", err)
+			buzz()
+			continue
+		}
 
 		if result.GetStatus() == service.Status_AUCTION_OVER {
 			log.Printf("The auction is over. The winner was %s. The winning bid was: %d\n", result.GetMadeBy(), result.GetAmount())
@@ -103,6 +117,7 @@ func bidMachine() {
 			newBid := result.GetAmount() + 1
 			log.Printf("Client is going to make a new highest bid of %d\n", newBid)
 			makeBidsOnAllReplicas(&replicaManagers, newBid)
+			buzz()
 		}
 	}
 }
@@ -123,11 +138,13 @@ func makeBidsOnAllReplicas(replicaManagers *[]ReplicaManager, bid int32) {
 	wg.Wait()
 }
 
-func getCurrentHighestBid(replicaManagers *[]ReplicaManager) service.Result {
+func getCurrentHighestBid(replicaManagers *[]ReplicaManager) (service.Result, error) {
 
 	var resultBuffer []service.Result
 	resultLock := sync.Mutex{}
 	wg := sync.WaitGroup{}
+
+	auctionClosed := false
 
 	for _, replicaManager := range *replicaManagers {
 
@@ -136,15 +153,20 @@ func getCurrentHighestBid(replicaManagers *[]ReplicaManager) service.Result {
 		go func(rm ReplicaManager) {
 			result, err := getResult(rm)
 
+			if result.GetStatus() == service.Status_AUCTION_OVER {
+				resultLock.Lock()
+				auctionClosed = true
+				resultLock.Unlock()
+				return
+			}
+
 			if err != nil {
 				wg.Done()
 				return
 			}
 
 			resultLock.Lock()
-			resultBuffer = append(resultBuffer, service.Result{MadeBy: result.GetMadeBy(),
-				Amount: result.GetAmount(),
-				Status: result.GetStatus()})
+			resultBuffer = append(resultBuffer, deepCopyResult(result))
 			resultLock.Unlock()
 
 			wg.Done()
@@ -153,18 +175,27 @@ func getCurrentHighestBid(replicaManagers *[]ReplicaManager) service.Result {
 
 	wg.Wait()
 
-	bestResult := deepCopyResult(&resultBuffer[0])
-	// find the highest result, such that we avoid propagating discrepancies
-	for i, result := range resultBuffer {
-		if i != 0 {
-			if result.Amount > bestResult.Amount {
-				bestResult = deepCopyResult(&result)
-			}
-		}
+	if auctionClosed {
+		return service.Result{Status: service.Status_AUCTION_OVER}, fmt.Errorf("the auction is over")
 	}
 
-	// returning a deep copy of an already deep copied result is to comply with the go formatter
-	return deepCopyResult(&bestResult)
+	if len(resultBuffer) > 0 {
+
+		bestResult := deepCopyResult(&resultBuffer[0])
+		// find the highest result, such that we avoid propagating discrepancies
+		for i, result := range resultBuffer {
+			if i != 0 {
+				if result.Amount > bestResult.Amount {
+					bestResult = deepCopyResult(&result)
+				}
+			}
+		}
+
+		// returning a deep copy of an already deep copied result is to comply with the go formatter
+		return deepCopyResult(&bestResult), nil
+	}
+
+	return service.Result{}, fmt.Errorf("no results were returned")
 }
 
 func deepCopyResult(result *service.Result) service.Result {

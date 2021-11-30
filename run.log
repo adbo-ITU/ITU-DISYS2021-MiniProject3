@@ -1,0 +1,308 @@
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:37 Started server on 0.0.0.0:5000
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:37 Started server on 0.0.0.0:5000
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:37 Started server on 0.0.0.0:5000
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:37 Starting to set up bidder
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:37 Starting to dial all nodes
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:37 Starting the bidding machine
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:37 GetResult: highest bid is 0 by server, lol make a bid man
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:37 GetResult: highest bid is 0 by server, lol make a bid man
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:37 GetResult: highest bid is 0 by server, lol make a bid man
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:37 Client is going to make a new highest bid of 1
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:37 MakeBid: A new highest bid of 1 from Alice has beaten the old bid of 0 from server, lol make a bid man!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:37 MakeBid: A new highest bid of 1 from Alice has beaten the old bid of 0 from server, lol make a bid man!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:37 MakeBid: A new highest bid of 1 from Alice has beaten the old bid of 0 from server, lol make a bid man!
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:37 Starting to set up bidder
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:37 Starting to dial all nodes
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:37 Starting the bidding machine
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:37 GetResult: highest bid is 1 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:37 GetResult: highest bid is 1 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:37 GetResult: highest bid is 1 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:37 Client is going to make a new highest bid of 2
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:37 MakeBid: A new highest bid of 2 from Bob has beaten the old bid of 1 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:37 MakeBid: A new highest bid of 2 from Bob has beaten the old bid of 1 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:37 MakeBid: A new highest bid of 2 from Bob has beaten the old bid of 1 from Alice!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:40 Client is going to make a new highest bid of 3
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:40 GetResult: highest bid is 2 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:40 MakeBid: A new highest bid of 3 from Alice has beaten the old bid of 2 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:40 GetResult: highest bid is 2 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:40 GetResult: highest bid is 2 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:40 MakeBid: A new highest bid of 3 from Alice has beaten the old bid of 2 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:40 MakeBid: A new highest bid of 3 from Alice has beaten the old bid of 2 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:40 GetResult: highest bid is 3 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:40 GetResult: highest bid is 3 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:40 GetResult: highest bid is 3 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:40 Client is going to make a new highest bid of 4
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:40 MakeBid: A new highest bid of 4 from Bob has beaten the old bid of 3 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:40 MakeBid: A new highest bid of 4 from Bob has beaten the old bid of 3 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:40 MakeBid: A new highest bid of 4 from Bob has beaten the old bid of 3 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1 exited with code 137
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:43 GetResult: highest bid is 4 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:43 GetResult: highest bid is 4 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:43 Could not get result: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp: lookup auctionserver2 on 127.0.0.11:53: no such host"
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:43 Client is going to make a new highest bid of 5
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:43 Could not make bid: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp: lookup auctionserver2 on 127.0.0.11:53: no such host"
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:43 MakeBid: A new highest bid of 5 from Alice has beaten the old bid of 4 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:43 MakeBid: A new highest bid of 5 from Alice has beaten the old bid of 4 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:43 GetResult: highest bid is 5 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:43 GetResult: highest bid is 5 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:43 MakeBid: A new highest bid of 6 from Bob has beaten the old bid of 5 from Alice!
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:43 Could not get result: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp: lookup auctionserver2 on 127.0.0.11:53: no such host"
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:43 Client is going to make a new highest bid of 6
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:43 MakeBid: A new highest bid of 6 from Bob has beaten the old bid of 5 from Alice!
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:43 Could not make bid: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp: lookup auctionserver2 on 127.0.0.11:53: no such host"
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:46 Trying to reconnect to node auctionserver2:5000
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:46 Trying to reconnect to node auctionserver2:5000
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:48 GetResult: highest bid is 6 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:48 GetResult: highest bid is 6 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:48 After attempted reconnection to auctionserver2:5000, it failed again.
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:48 Client is going to make a new highest bid of 7
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:48 MakeBid: A new highest bid of 7 from Alice has beaten the old bid of 6 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:48 MakeBid: A new highest bid of 7 from Alice has beaten the old bid of 6 from Bob!
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:48 After attempted reconnection to auctionserver2:5000, it failed again.
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:48 GetResult: highest bid is 7 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:48 GetResult: highest bid is 7 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:48 Client is going to make a new highest bid of 8
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:48 MakeBid: A new highest bid of 8 from Bob has beaten the old bid of 7 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:48 MakeBid: A new highest bid of 8 from Bob has beaten the old bid of 7 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:49 Started server on 0.0.0.0:5000
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:51 Trying to reconnect to node auctionserver2:5000
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:51 GetResult: highest bid is 8 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:51 GetResult: highest bid is 8 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:51 GetResult: highest bid is 0 by server, lol make a bid man
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:51 Client is going to make a new highest bid of 9
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:51 MakeBid: A new highest bid of 9 from Alice has beaten the old bid of 0 from server, lol make a bid man!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:51 MakeBid: A new highest bid of 9 from Alice has beaten the old bid of 8 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:51 MakeBid: A new highest bid of 9 from Alice has beaten the old bid of 8 from Bob!
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:51 Trying to reconnect to node auctionserver2:5000
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:51 GetResult: highest bid is 9 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:51 GetResult: highest bid is 9 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:51 GetResult: highest bid is 9 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:51 Client is going to make a new highest bid of 10
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:51 MakeBid: A new highest bid of 10 from Bob has beaten the old bid of 9 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:51 MakeBid: A new highest bid of 10 from Bob has beaten the old bid of 9 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:51 MakeBid: A new highest bid of 10 from Bob has beaten the old bid of 9 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:54 GetResult: highest bid is 10 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:54 GetResult: highest bid is 10 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:54 GetResult: highest bid is 10 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:54 Client is going to make a new highest bid of 11
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:54 MakeBid: A new highest bid of 11 from Alice has beaten the old bid of 10 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:54 MakeBid: A new highest bid of 11 from Alice has beaten the old bid of 10 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:54 MakeBid: A new highest bid of 11 from Alice has beaten the old bid of 10 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:54 GetResult: highest bid is 11 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:54 GetResult: highest bid is 11 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:54 GetResult: highest bid is 11 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:54 Client is going to make a new highest bid of 12
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:54 MakeBid: A new highest bid of 12 from Bob has beaten the old bid of 11 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:54 MakeBid: A new highest bid of 12 from Bob has beaten the old bid of 11 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:54 MakeBid: A new highest bid of 12 from Bob has beaten the old bid of 11 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:57 GetResult: highest bid is 12 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:57 GetResult: highest bid is 12 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:57 GetResult: highest bid is 12 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:11:57 Client is going to make a new highest bid of 13
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:57 MakeBid: A new highest bid of 13 from Alice has beaten the old bid of 12 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:57 MakeBid: A new highest bid of 13 from Alice has beaten the old bid of 12 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:57 MakeBid: A new highest bid of 13 from Alice has beaten the old bid of 12 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:57 GetResult: highest bid is 13 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:57 GetResult: highest bid is 13 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:57 GetResult: highest bid is 13 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:11:57 Client is going to make a new highest bid of 14
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:11:57 MakeBid: A new highest bid of 14 from Bob has beaten the old bid of 13 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:11:57 MakeBid: A new highest bid of 14 from Bob has beaten the old bid of 13 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:11:57 MakeBid: A new highest bid of 14 from Bob has beaten the old bid of 13 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:00 GetResult: highest bid is 14 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:00 Client is going to make a new highest bid of 15
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:00 GetResult: highest bid is 14 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:00 GetResult: highest bid is 14 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:00 MakeBid: A new highest bid of 15 from Alice has beaten the old bid of 14 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:00 MakeBid: A new highest bid of 15 from Alice has beaten the old bid of 14 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:00 MakeBid: A new highest bid of 15 from Alice has beaten the old bid of 14 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:00 GetResult: highest bid is 15 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:00 GetResult: highest bid is 15 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:00 GetResult: highest bid is 15 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:00 Client is going to make a new highest bid of 16
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:00 MakeBid: A new highest bid of 16 from Bob has beaten the old bid of 15 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:00 MakeBid: A new highest bid of 16 from Bob has beaten the old bid of 15 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:00 MakeBid: A new highest bid of 16 from Bob has beaten the old bid of 15 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:03 GetResult: highest bid is 16 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:03 GetResult: highest bid is 16 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:03 GetResult: highest bid is 16 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:03 Client is going to make a new highest bid of 17
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:03 MakeBid: A new highest bid of 17 from Alice has beaten the old bid of 16 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:03 MakeBid: A new highest bid of 17 from Alice has beaten the old bid of 16 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:03 MakeBid: A new highest bid of 17 from Alice has beaten the old bid of 16 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:03 GetResult: highest bid is 17 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:03 GetResult: highest bid is 17 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:03 GetResult: highest bid is 17 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:03 Client is going to make a new highest bid of 18
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:03 MakeBid: A new highest bid of 18 from Bob has beaten the old bid of 17 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:03 MakeBid: A new highest bid of 18 from Bob has beaten the old bid of 17 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:03 MakeBid: A new highest bid of 18 from Bob has beaten the old bid of 17 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:06 GetResult: highest bid is 18 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:06 GetResult: highest bid is 18 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:06 GetResult: highest bid is 18 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:06 MakeBid: A new highest bid of 19 from Alice has beaten the old bid of 18 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:06 MakeBid: A new highest bid of 19 from Alice has beaten the old bid of 18 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:06 MakeBid: A new highest bid of 19 from Alice has beaten the old bid of 18 from Bob!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:06 Client is going to make a new highest bid of 19
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:06 Client is going to make a new highest bid of 20
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:06 GetResult: highest bid is 19 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:06 GetResult: highest bid is 19 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:06 GetResult: highest bid is 19 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:06 MakeBid: A new highest bid of 20 from Bob has beaten the old bid of 19 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:06 MakeBid: A new highest bid of 20 from Bob has beaten the old bid of 19 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:06 MakeBid: A new highest bid of 20 from Bob has beaten the old bid of 19 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:09 GetResult: highest bid is 20 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:09 GetResult: highest bid is 20 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:09 GetResult: highest bid is 20 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:09 Client is going to make a new highest bid of 21
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:09 MakeBid: A new highest bid of 21 from Alice has beaten the old bid of 20 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:09 MakeBid: A new highest bid of 21 from Alice has beaten the old bid of 20 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:09 MakeBid: A new highest bid of 21 from Alice has beaten the old bid of 20 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:09 GetResult: highest bid is 21 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:09 GetResult: highest bid is 21 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:09 GetResult: highest bid is 21 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:09 Client is going to make a new highest bid of 22
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:09 MakeBid: A new highest bid of 22 from Bob has beaten the old bid of 21 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:09 MakeBid: A new highest bid of 22 from Bob has beaten the old bid of 21 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:09 MakeBid: A new highest bid of 22 from Bob has beaten the old bid of 21 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:12 GetResult: highest bid is 22 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:12 GetResult: highest bid is 22 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:12 GetResult: highest bid is 22 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:12 MakeBid: A new highest bid of 23 from Alice has beaten the old bid of 22 from Bob!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:12 Client is going to make a new highest bid of 23
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:12 MakeBid: A new highest bid of 23 from Alice has beaten the old bid of 22 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:12 MakeBid: A new highest bid of 23 from Alice has beaten the old bid of 22 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:12 GetResult: highest bid is 23 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:12 GetResult: highest bid is 23 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:12 GetResult: highest bid is 23 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:12 Client is going to make a new highest bid of 24
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:12 MakeBid: A new highest bid of 24 from Bob has beaten the old bid of 23 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:12 MakeBid: A new highest bid of 24 from Bob has beaten the old bid of 23 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:12 MakeBid: A new highest bid of 24 from Bob has beaten the old bid of 23 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:15 GetResult: highest bid is 24 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:15 GetResult: highest bid is 24 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:15 GetResult: highest bid is 24 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:15 Client is going to make a new highest bid of 25
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:15 MakeBid: A new highest bid of 25 from Alice has beaten the old bid of 24 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:15 MakeBid: A new highest bid of 25 from Alice has beaten the old bid of 24 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:15 MakeBid: A new highest bid of 25 from Alice has beaten the old bid of 24 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:15 GetResult: highest bid is 25 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:15 GetResult: highest bid is 25 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:15 GetResult: highest bid is 25 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:15 MakeBid: A new highest bid of 26 from Bob has beaten the old bid of 25 from Alice!
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:15 Client is going to make a new highest bid of 26
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:15 MakeBid: A new highest bid of 26 from Bob has beaten the old bid of 25 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:15 MakeBid: A new highest bid of 26 from Bob has beaten the old bid of 25 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:18 GetResult: highest bid is 26 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:18 GetResult: highest bid is 26 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:18 GetResult: highest bid is 26 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:18 MakeBid: A new highest bid of 27 from Alice has beaten the old bid of 26 from Bob!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:18 Client is going to make a new highest bid of 27
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:18 MakeBid: A new highest bid of 27 from Alice has beaten the old bid of 26 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:18 MakeBid: A new highest bid of 27 from Alice has beaten the old bid of 26 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:18 GetResult: highest bid is 27 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:18 GetResult: highest bid is 27 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:18 GetResult: highest bid is 27 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:18 Client is going to make a new highest bid of 28
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:18 MakeBid: A new highest bid of 28 from Bob has beaten the old bid of 27 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:18 MakeBid: A new highest bid of 28 from Bob has beaten the old bid of 27 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:18 MakeBid: A new highest bid of 28 from Bob has beaten the old bid of 27 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:21 GetResult: highest bid is 28 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:21 MakeBid: A new highest bid of 29 from Alice has beaten the old bid of 28 from Bob!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:21 Client is going to make a new highest bid of 29
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:21 GetResult: highest bid is 28 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:21 GetResult: highest bid is 28 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:21 MakeBid: A new highest bid of 29 from Alice has beaten the old bid of 28 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:21 MakeBid: A new highest bid of 29 from Alice has beaten the old bid of 28 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:21 GetResult: highest bid is 29 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:21 GetResult: highest bid is 29 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:21 GetResult: highest bid is 29 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:21 Client is going to make a new highest bid of 30
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:21 MakeBid: A new highest bid of 30 from Bob has beaten the old bid of 29 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:21 MakeBid: A new highest bid of 30 from Bob has beaten the old bid of 29 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:21 MakeBid: A new highest bid of 30 from Bob has beaten the old bid of 29 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:24 GetResult: highest bid is 30 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:24 GetResult: highest bid is 30 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:24 GetResult: highest bid is 30 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:24 MakeBid: A new highest bid of 31 from Alice has beaten the old bid of 30 from Bob!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:24 Client is going to make a new highest bid of 31
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:24 MakeBid: A new highest bid of 31 from Alice has beaten the old bid of 30 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:24 MakeBid: A new highest bid of 31 from Alice has beaten the old bid of 30 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:24 GetResult: highest bid is 31 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:24 GetResult: highest bid is 31 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:24 GetResult: highest bid is 31 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:24 Client is going to make a new highest bid of 32
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:24 MakeBid: A new highest bid of 32 from Bob has beaten the old bid of 31 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:24 MakeBid: A new highest bid of 32 from Bob has beaten the old bid of 31 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:24 MakeBid: A new highest bid of 32 from Bob has beaten the old bid of 31 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:27 GetResult: highest bid is 32 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:27 GetResult: highest bid is 32 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:27 GetResult: highest bid is 32 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:27 Client is going to make a new highest bid of 33
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:27 MakeBid: A new highest bid of 33 from Alice has beaten the old bid of 32 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:27 MakeBid: A new highest bid of 33 from Alice has beaten the old bid of 32 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:27 MakeBid: A new highest bid of 33 from Alice has beaten the old bid of 32 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:27 GetResult: highest bid is 33 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:27 GetResult: highest bid is 33 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:27 GetResult: highest bid is 33 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:27 Client is going to make a new highest bid of 34
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:27 MakeBid: A new highest bid of 34 from Bob has beaten the old bid of 33 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:27 MakeBid: A new highest bid of 34 from Bob has beaten the old bid of 33 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:27 MakeBid: A new highest bid of 34 from Bob has beaten the old bid of 33 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:30 GetResult: highest bid is 34 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:30 GetResult: highest bid is 34 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:30 GetResult: highest bid is 34 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:30 MakeBid: A new highest bid of 35 from Alice has beaten the old bid of 34 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:30 MakeBid: A new highest bid of 35 from Alice has beaten the old bid of 34 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:30 MakeBid: A new highest bid of 35 from Alice has beaten the old bid of 34 from Bob!
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:30 Client is going to make a new highest bid of 35
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:30 GetResult: highest bid is 35 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:30 GetResult: highest bid is 35 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:30 GetResult: highest bid is 35 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:30 Client is going to make a new highest bid of 36
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:30 MakeBid: A new highest bid of 36 from Bob has beaten the old bid of 35 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:30 MakeBid: A new highest bid of 36 from Bob has beaten the old bid of 35 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:30 MakeBid: A new highest bid of 36 from Bob has beaten the old bid of 35 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:33 GetResult: highest bid is 36 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:33 GetResult: highest bid is 36 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:33 GetResult: highest bid is 36 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:33 Client is going to make a new highest bid of 37
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:33 MakeBid: A new highest bid of 37 from Alice has beaten the old bid of 36 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:33 MakeBid: A new highest bid of 37 from Alice has beaten the old bid of 36 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:33 MakeBid: A new highest bid of 37 from Alice has beaten the old bid of 36 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:33 GetResult: highest bid is 37 by Alice
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:33 GetResult: highest bid is 37 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:33 GetResult: highest bid is 37 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:33 Client is going to make a new highest bid of 38
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:33 MakeBid: A new highest bid of 38 from Bob has beaten the old bid of 37 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:33 MakeBid: A new highest bid of 38 from Bob has beaten the old bid of 37 from Alice!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:33 MakeBid: A new highest bid of 38 from Bob has beaten the old bid of 37 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:36 GetResult: highest bid is 38 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:36 GetResult: highest bid is 38 by Bob
+itu-disys2021-miniproject3-better2-1         | 2021/11/30 11:12:36 Client is going to make a new highest bid of 39
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:36 GetResult: highest bid is 38 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:36 MakeBid: A new highest bid of 39 from Alice has beaten the old bid of 38 from Bob!
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:36 MakeBid: A new highest bid of 39 from Alice has beaten the old bid of 38 from Bob!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:36 MakeBid: A new highest bid of 39 from Alice has beaten the old bid of 38 from Bob!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:36 GetResult: highest bid is 39 by Alice
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:36 GetResult: highest bid is 39 by Alice
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:36 GetResult: highest bid is 39 by Alice
+itu-disys2021-miniproject3-better1-1         | 2021/11/30 11:12:36 Client is going to make a new highest bid of 40
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:36 MakeBid: A new highest bid of 40 from Bob has beaten the old bid of 39 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:36 MakeBid: A new highest bid of 40 from Bob has beaten the old bid of 39 from Alice!
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:36 MakeBid: A new highest bid of 40 from Bob has beaten the old bid of 39 from Alice!
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:37 Auction ended - the winning bid was 40 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | !
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:37 Auction ended - the winning bid was 40 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | !
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:39 The highets bidder for this replica manager was 40 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:39 The highets bidder for this replica manager was 40 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:39 GetResult: highest bid is 40 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:39 GetResult: highest bid is 40 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:39 GetResult: highest bid is 40 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:39 GetResult: highest bid is 40 by Bob
+itu-disys2021-miniproject3-auctionserver3-1  | 2021/11/30 11:12:39 GetResult: highest bid is 40 by Bob
+itu-disys2021-miniproject3-auctionserver1-1  | 2021/11/30 11:12:39 GetResult: highest bid is 40 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:49 Auction ended - the winning bid was 40 by Bob
+itu-disys2021-miniproject3-auctionserver2-1  | !
+itu-disys2021-miniproject3-auctionserver2-1  | 2021/11/30 11:12:51 The highets bidder for this replica manager was 40 by Bob

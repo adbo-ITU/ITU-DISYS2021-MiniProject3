@@ -8,6 +8,8 @@ services:
     - PORT=5000
     expose:
     - 5000
+    labels:
+      - itudidsysmp3.app=server
 
   auctionserver2:
     image: "itudisysmp3server"
@@ -15,6 +17,8 @@ services:
     - PORT=5000
     expose:
     - 5000
+    labels:
+      - itudidsysmp3.app=server
 
   auctionserver3:
     image: "itudisysmp3server"
@@ -22,15 +26,25 @@ services:
     - PORT=5000
     expose:
     - 5000
+    labels:
+      - itudidsysmp3.app=server
 
   # Betters
   better1:
     image: itudisysmp3client
+    depends_on:
+      - auctionserver1
+      - auctionserver2
+      - auctionserver3
     environment:
     - BIDDER_NAME=Bob
     - SERVERS=3
   better2:
     image: itudisysmp3client
+    depends_on:
+      - auctionserver1
+      - auctionserver2
+      - auctionserver3
     environment:
     - BIDDER_NAME=Alice
     - SERVERS=3

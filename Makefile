@@ -18,7 +18,35 @@ build-server-container:
 build-client-container:
 	docker build -t itudisysmp3client -f Dockerfile.client .
 
-.PHONY: build-all-containers
-build-all-containers:
+.PHONY: build
+build:
 	make build-server-container
 	make build-client-container
+
+.PHONY: run
+run:
+	docker-compose up
+
+.PHONY: clean
+clean:
+	# Stop the containers
+	docker-compose down
+
+	# Removing client containers 
+	docker ps --filter "ancestor=itudisysmp3client" -q -a | xargs docker rm
+
+	# Removing client 
+	docker ps --filter "ancestor=itudisysmp3server" -q -a | xargs docker rm
+
+	docker rmi itudisysmp3server && docker rmi itudisysmp3client || true
+
+.PHONY: simulate-crash
+simulate-crash:
+	# Killing the second server
+	docker ps -a --filter "label=itudidsysmp3.app" | grep server2 | awk '{ print $1 }' | xargs docker kill || true
+
+	# Waiting
+	sleep 5
+
+	docker compose restart auctionserver2
+
